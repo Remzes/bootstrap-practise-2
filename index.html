@@ -55,16 +55,20 @@
         height: 100%;
         margin-bottom: 10px;
     }
+
     .carousel-control.right, .carousel-control.left {
         background-image: none;
         color: #f4511e;
     }
+
     .carousel-indicators li {
         border-color: #f4511e;
     }
+
     .carousel-indicators li.active {
         background-color: #f4551e;
     }
+
     .item h4 {
         font-size: 19px;
         line-height: 1.375em;
@@ -72,6 +76,7 @@
         font-style: italic;
         margin: 70px 0;
     }
+
     .item span {
         font-style: normal;
     }
@@ -81,14 +86,17 @@
         border-radius: 0;
         transition: box-shadow 0.5s;
     }
+
     .panel:hover {
-        box-shadow: 5px 0 40px rgba(0,0,0, .2);
+        box-shadow: 5px 0 40px rgba(0, 0, 0, .2);
     }
-    .panel-footer .btn:hover{
+
+    .panel-footer .btn:hover {
         border: 1px solid #f4511e;
         background-color: #fff !important;
         color: #f4511e;
     }
+
     .panel-heading {
         color: #fff !important;
         background-color: #f4511e !important;
@@ -99,12 +107,15 @@
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 0;
     }
+
     .panel-footer {
         background-color: #fff !important;
     }
+
     .panel-footer h3 {
         font-size: 32px;
     }
+
     .panel-footer h4 {
         color: #aaa;
         font-size: 14px;
@@ -113,7 +124,7 @@
     .panel-footer .btn {
         margin: 15px 0;
         background-color: #f4511e;
-        color:#fff;
+        color: #fff;
     }
 
 </style>
@@ -360,6 +371,70 @@
             </div>
         </div>
     </div> <!-- End of row -->
-</div>
+</div> <!-- End of container-fluid -->
+
+<div class="container-fluid bg-grey">
+    <h2 class="text-center">
+        CONTACT
+    </h2>
+
+    <div class="row">
+        <div class="col-sm-5">
+            <p>Contact us and we'll get back to you within 24 hours.</p>
+
+            <p><span class="glyphicon glyphicon-map-marker"></span> Chicago, US</p>
+
+            <p><span class="glyphicon glyphicon-phone"></span> +00 15151515151</p>
+
+            <p><span class="glyphicon glyphicon-envelope"></span>myemail@something.com</p>
+        </div>
+        <div class="col-sm-7">
+            <div class="row">
+                <div class="col-sm-6 form-group">
+                    <input type="text" id="name" name="name" class="form-control" placeholder="Name" required>
+                </div>
+                <div class="col-sm-6 form-group">
+                    <input type="text" id="email" name="email" class="form-control" placeholder="Email" required>
+                </div>
+            </div> <!-- end of row -->
+            <textarea name="comments" id="comments" rows="5" placeholder="Comments" class="form-control"></textarea>
+            <br>
+
+            <div class="row">
+                <div class="col-sm-12 form-group">
+                    <button class="btn btn-default pull-right" type="submit">Send</button>
+                </div>
+            </div> <!-- end of row -->
+
+        </div>
+    </div> <!-- end of row -->
+</div> <!-- end of container-fluid -->
+<div id="googleMap" style="height:400px;width:100%;"></div>
+
+
+<script src="http://maps.googleapis.com/maps/api/js"></script>
+<script>
+    var myCenter = new google.maps.LatLng(41.878114, -87.629798);
+
+    function initialize() {
+        var mapProp = {
+            center:myCenter,
+            zoom:12,
+            scrollwheel:false,
+            draggable:false,
+            mapTypeId:google.maps.MapTypeId.ROADMAP
+        };
+
+        var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+
+        var marker = new google.maps.Marker({
+            position:myCenter,
+        });
+
+        marker.setMap(map);
+    }
+
+    google.maps.event.addDomListener(window, 'load', initialize);
+</script>
 </body>
 </html>
